@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport: makes the page fit phone screens -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dhanvix  - Expense Tracker</title>
+  <!-- Outfit font: rounded numbers that look good on money cards -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- empty favicon: stops the browser asking for favicon.ico (404) -->
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 1. MAIN LAYOUT: sidebar on the left, content on the right -->
+  <div class="app">
+    <aside class="side" id="menu"></aside> <!-- menu is built by script.js -->
+
+    <main class="main">
+      <!-- 2. TOP BAR: greeting, search and add button -->
+      <header class="top">
+        <div>
+          <h1>Hi there 👋</h1>
+          <p class="muted" id="subtitle"></p>
+        </div>
+        <div class="tools">
+          <input class="field" id="search" placeholder="Search expenses...">
+          <button class="btn" onclick="openModal()">+ Add expense</button>
+        </div>
+      </header>
+
+      <!-- 3. PAGE AREA: script.js puts the selected page here -->
+      <section id="page"></section>
+    </main>
+  </div>
+
+  <!-- 4. ADD EXPENSE POPUP: hidden until openModal() is called -->
+  <div class="veil" id="modal" onclick="closeModal(event)">
+    <div class="modal">
+      <h2>Add expense</h2>
+      <input class="field" id="m-where" placeholder="Where did you spend? (e.g. Zomato)">
+      <input class="field" id="m-amt" type="number" placeholder="Amount in ₹">
+      <select class="field" id="m-cat"></select>
+      <select class="field" id="m-mode"></select>
+      <input class="field" id="m-date" type="date">
+      <button class="btn" onclick="saveExpense()">Save expense</button>
+    </div>
+  </div>
+
+  <!-- 5. TOAST: small message shown after saving -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
